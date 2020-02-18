@@ -1,0 +1,4 @@
+config/
+node_modules/
+package-lock.json
+how-to-add-local-git-repository-to-online.txt
