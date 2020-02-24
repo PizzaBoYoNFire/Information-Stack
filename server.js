@@ -10,16 +10,17 @@ const posts = require('./routes/api/posts');
 const app = express();
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //db config
-const db = require('./config/keys').mongoURI;
+const db = require('./config/keys')
+  .mongoURI;
 
 // connect to mongoDB
 mongoose
-  .connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
-  .then( () => console.log("mongoDB connected."))
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+  .then(() => console.log("mongoDB connected."))
   .catch(err => console.log(err));
 
 // Passport middleware
